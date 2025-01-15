@@ -1,0 +1,21 @@
+import express from 'express';
+import roomKpiController from './roomKpi.controller';
+import { sanitize } from '../../../middleware/sanitizer';
+export const kpiRouter = express.Router();
+kpiRouter.route('/room-count-with-status').post(sanitize(), roomKpiController.roomCountWithStatus);
+kpiRouter.route('/booking-count-with-status').post(sanitize(), roomKpiController.bookingCountWithStatus);
+kpiRouter.route('/property-count-with-status').post(sanitize(), roomKpiController.propertyCountWithStatus);
+kpiRouter.route('/food-order-count-with-status').post(sanitize(), roomKpiController.foodOrderCountWithStatus);
+//Download Report
+kpiRouter.route('/booking-report').get(sanitize(), roomKpiController.downloadBookingReport);
+kpiRouter.route('/booking-payment-report').get(sanitize(), roomKpiController.downloadBookingPaymentReport);
+kpiRouter.route('/booking-food-payment-report').get(sanitize(), roomKpiController.downloadFoodPaymentReport);
+kpiRouter.route('/inventory-report').get(sanitize(), roomKpiController.downloadInventoryReport);
+kpiRouter.route('/food-order-report').get(sanitize(), roomKpiController.downloadFoodOrderReport);
+kpiRouter.route('/food-order-payment-report').get(sanitize(), roomKpiController.downloadFoodOrderPaymentReport);
+kpiRouter.route('/loundary-report').get(sanitize(), roomKpiController.downloadLoundaryReport);
+kpiRouter.route('/customer-report').get(sanitize(), roomKpiController.downloadCustomerReport);
+kpiRouter.route('/booking-count-with-userby').get(sanitize(), roomKpiController.downloadBookingReportByUser);
+kpiRouter.route('/get-transaction-report').get(sanitize(), roomKpiController.downloadTransactionReport);
+kpiRouter.route('/get-rating-report').get(sanitize(), roomKpiController.downloadRatingReport);
+kpiRouter.route('/select-property').get(sanitize(), roomKpiController.getProperty);
