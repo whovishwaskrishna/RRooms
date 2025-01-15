@@ -279,9 +279,6 @@ const get = async (
         const plainItem = item.toJSON();
         const hotelAminties = getHotelAminties.filter((aminty) => { return aminty.propertyId == plainItem.id });
         plainItem.PropertyAmenities = hotelAminties.length > 0 ? hotelAminties : [];
-        // console.log("plainItem.PropertyImages.length - ", plainItem.PropertyImages.length);
-        // console.log("plainItem.Rooms.length - ", plainItem.Rooms.length);
-        // console.log("plainItem.Ratings.length - ", plainItem.Ratings.length);
         // console.log("plainItem.PropertyAmenities.length - ", 'Hotel ID - ' + plainItem.id + ' - Aminities - ' + plainItem.PropertyAmenities.length)
         return plainItem;
     });
